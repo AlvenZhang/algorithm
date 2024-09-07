@@ -6,7 +6,7 @@ import jdk.nashorn.internal.ir.Flags;
 public class Solution459 {
 
     public static void main(String[] args) {
-        System.out.println(new Solution459().repeatedSubstringPattern("aabaaba"));
+        System.out.println(new Solution459().repeatedSubstringPattern("abaababaab"));
     }
 
     public boolean repeatedSubstringPattern(String s) {
@@ -14,7 +14,7 @@ public class Solution459 {
         for (int i = 1; i <= s.length() / 2; i++) {
             boolean flag = true;
             if (s.length() % i != 0) {
-                return false;
+                continue;
             }
             for (int i1 = i; i1 + i <= s.length(); i1 += i) {
                 if (!compare(s.substring(i1, i1 + i), s.substring(0, i))) {

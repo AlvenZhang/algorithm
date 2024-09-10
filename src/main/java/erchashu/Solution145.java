@@ -3,10 +3,7 @@ package erchashu;
 import jdk.nashorn.internal.runtime.linker.LinkerCallSite;
 
 import javax.swing.tree.TreeNode;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Solution145 {
 
@@ -33,8 +30,9 @@ public class Solution145 {
      * @return
      */
     public List<Integer> postorderTraversal2(TreeNode root) {
-        ArrayList<Integer> list = new ArrayList<>();
-
+//        ArrayList<Integer> list = new ArrayList<>();
+        // 可以使用linkedList避免最后的reverse操作
+        LinkedList<Integer> list = new LinkedList<>();
         if (root == null){
             return list;
         }
@@ -42,7 +40,8 @@ public class Solution145 {
         stack.push(root);
         while (!stack.isEmpty()){
             TreeNode node = stack.pop();
-            list.add(node.val);
+//            list.add(node.val);
+            list.addFirst(node.val);
             if (node.left!=null){
                 stack.push(node.left);
             }
@@ -50,7 +49,7 @@ public class Solution145 {
                 stack.push(node.right);
             }
         }
-        Collections.reverse(list);
+//        Collections.reverse(list);
         return list;
     }
 

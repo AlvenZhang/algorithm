@@ -6,9 +6,9 @@ public class Test {
 
     public static void main(String[] args) throws InterruptedException {
 
-//        synchronized (lock){
-//            System.out.println(123);
-//        }
+        synchronized (lock){
+            System.out.println(123);
+        }
 
         try {
             Class<?> test = ClassLoader.getSystemClassLoader().loadClass("Test");
